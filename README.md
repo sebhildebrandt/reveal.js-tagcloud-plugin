@@ -79,13 +79,17 @@ I personally like a little bit more space between the items of the tag-cloud, so
 
 
 ```css
+/*********************************************
+ * TAGCLOUD
+ *********************************************/
 span.clouditem {
-	padding-left: 0.15em;
-	padding-right: 0.15em;
+  padding-left: 0.15em;
+  padding-right: 0.15em;
+  line-height: 90%;
 }
 ```
 
-to reveal.css (or reveal.min.css)
+to my template CSS
 
 ## Comments
 
