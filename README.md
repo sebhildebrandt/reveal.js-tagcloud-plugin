@@ -2,6 +2,8 @@
 
 Simple Tag-Cloud-Plugin for [reveal.js](https://github.com/hakimel/reveal.js) (framework for easily creating beautiful presentations using HTML)  - Version 0.0.1 - (MIT-license)
 
+[![Tag Cloud](http://www.plus-innovations.com/images/tagcloud.jpg)]
+
 ## Installation
 
 Place the tagcloud-dir within the reveal.js plugin directory - that's it.
@@ -41,7 +43,10 @@ In your presentation place e.g. the following code:
  </section>
 ```
 
-for black&white tag cloud you can do the same, adding a `bw` attribute:
+For black&white tag cloud you can do the same, adding a `bw` attribute:
+
+[![Tag Cloud](http://www.plus-innovations.com/images/tagcloud-bw.jpg)]
+
 
 ```html
 <section tagcloud bw>
