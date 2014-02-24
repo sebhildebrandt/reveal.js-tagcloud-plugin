@@ -1,18 +1,18 @@
-# Tagclound Plugin for reveal.js
+# Tagcloud Plugin for reveal.js
 
-Simple Tag-Clound-Plugin for [reveal.js](https://github.com/hakimel/reveal.js) (framework for easily creating beautiful presentations using HTML)  - Version 0.0.1 - (MIT-license)
+Simple Tag-Cloud-Plugin for [reveal.js](https://github.com/hakimel/reveal.js) (framework for easily creating beautiful presentations using HTML)  - Version 0.0.1 - (MIT-license)
 
 ## Installation
 
 Place the tagcloud-dir within the reveal.js plugin directory - that's it.
 
-## Core concept
+## Usage
 
-With this plugin, you easily can create tagclouds within reveal.js -eather in Black and white (attribute: tagcloud-bw) or coloured (attribute: tagcloud). 
+With this plugin, you easily can create tagclouds within reveal.js - eather coloured or black&white. 
 
 In your presentation place e.g. the following code:
 
-```js
+```html
 <section tagcloud>
     Twitter Bootstrap
     jQuery
@@ -27,7 +27,6 @@ In your presentation place e.g. the following code:
     codekit
     livereload
     web-build
-    handlebars
     jQuery UI
     mustache
     emmet.io
@@ -42,37 +41,32 @@ In your presentation place e.g. the following code:
  </section>
 ```
 
-for black&white tag clound you can do the same, using a different attribute:
+for black&white tag cloud you can do the same, adding a `bw` attribute:
 
-```js
-<section tagcloud-bw>
+```html
+<section tagcloud bw>
     Twitter Bootstrap
     jQuery
     less
-    GruntJS
-    JSHint
-    JSLint
-    markdown
-    sass
-    jade
-    coffeescript
-    codekit
-    livereload
-    web-build
-    handlebars
-    jQuery UI
-    mustache
-    emmet.io
-    bower
-    browserstack
-    npm
-    RequireJS
-    socket.io
-    jQuery Mobile
-    node.js
+    ...
+    ...
     Jasmine
  </section>
 ```
+
+If you want your items to appear a liitle larger, add the `large` attrigute:
+
+```html
+<section tagcloud large>
+    Twitter Bootstrap
+    jQuery
+    less
+    ...
+    ...
+    Jasmine
+</section>
+```
+
 
 ## CSS
 
@@ -82,7 +76,7 @@ I personally like a little bit more space between the items of the tag-cloud, so
 ```css
 span.clouditem {
 	padding-left: 0.15em;
-	padding-right:0.15em;
+	padding-right: 0.15em;
 }
 ```
 
