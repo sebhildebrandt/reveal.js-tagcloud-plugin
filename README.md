@@ -1,18 +1,18 @@
 # Tagcloud Plugin for reveal.js
 
-Simple Tag-Cloud-Plugin for [reveal.js](https://github.com/hakimel/reveal.js) (framework for easily creating beautiful presentations using HTML)  - Version 0.0.1 - (MIT-license)
+Simple Tag-Cloud Plugin for [reveal.js](https://github.com/hakimel/reveal.js) (framework for easily creating beautiful presentations using HTML)  - Version 0.0.1 - (MIT-license)
 
 ![Tag Cloud](http://www.plus-innovations.com/images/tagcloud.jpg)
 
 ## Installation
 
-Place the tagcloud-dir within the reveal.js plugin directory - that's it.
+Place the `tagcloud`-directory within the reveal.js `plugin` directory - that's it.
 
 ## Usage
 
 With this plugin, you easily can create tagclouds within reveal.js - eather coloured or black&white. 
 
-In your presentation place e.g. the following code:
+Just create a section for your next slide. Add a `tagcloud` attribute to your section. Insite the section each item gets a seperate line. In your presentation place e.g. the following code:
 
 ```html
 <section tagcloud>
@@ -43,7 +43,7 @@ In your presentation place e.g. the following code:
  </section>
 ```
 
-For black&white tag cloud you can do the same, adding a `bw` attribute:
+For a black&white tag cloud you can do the same, by just adding a `bw` attribute:
 
 ![Tag Cloud](http://www.plus-innovations.com/images/tagcloud-bw.jpg)
 
@@ -59,7 +59,7 @@ For black&white tag cloud you can do the same, adding a `bw` attribute:
  </section>
 ```
 
-If you want your items to appear a liitle larger, add the `large` attrigute:
+If you want your items to appear a little larger, add the `large` attribute:
 
 ```html
 <section tagcloud large>
