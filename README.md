@@ -72,6 +72,17 @@ If you want your items to appear a little larger, add the `large` attribute:
 </section>
 ```
 
+If you want to have more control over the size of the tags, you can apply a weighting to each tag. Tags with a higher weight value will appear larger than tags with a lower or no weighting at all:
+
+```html
+<section tagcloud>
+    <span tagcloud-weight="10">Twitter Bootstrap</span>
+    <span tagcloud-weight="3">jQuery</span>
+    less
+    <span tagcloud-weight="743">GruntJS</span>
+    <span>Markdown</span>
+</section>
+```
 
 ## CSS
 
