@@ -1,8 +1,8 @@
 # Tagcloud Plugin for reveal.js
 
-Simple Tag-Cloud Plugin for [reveal.js](https://github.com/hakimel/reveal.js) (framework for easily creating beautiful presentations using HTML)  - Version 0.0.1 - (MIT-license)
+Simple Tag-Cloud Plugin for [reveal.js](https://github.com/hakimel/reveal.js) (framework for easily creating beautiful presentations using HTML)  - Version 0.1.0 - (MIT-license)
 
-![Tag Cloud](http://www.plus-innovations.com/images/tagcloud.jpg)
+![Tag Cloud](https://www.plus-innovations.com/images/tagcloud.jpg)
 
 ## Installation
 
@@ -45,7 +45,7 @@ Just create a section for your next slide. Add a `tagcloud` attribute to your se
 
 For a black&white tag cloud you can do the same, by just adding a `bw` attribute:
 
-![Tag Cloud](http://www.plus-innovations.com/images/tagcloud-bw.jpg)
+![Tag Cloud](https://www.plus-innovations.com/images/tagcloud-bw.jpg)
 
 
 ```html
@@ -117,6 +117,9 @@ http://www.plus-innovations.com
 #### Credits
 
 Written by Sebastian Hildebrandt for [reveal.js](https://github.com/hakimel/reveal.js)
+
+Contributers:
+Matt Fairbrass(https://github.com/matt-d-rat)
 
 #### License
 
