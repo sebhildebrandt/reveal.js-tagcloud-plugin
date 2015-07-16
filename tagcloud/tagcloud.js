@@ -2,7 +2,7 @@
 (function(){
     [].forEach.call( document.querySelectorAll('[tagcloud]'), function(cloud) {
         // Find all tagcloud items with a weight defined and add them to this array
-        var weights = [].slice.call(document.querySelectorAll('[tagcloud-weight]'))
+        var weights = [].slice.call(cloud.querySelectorAll('[tagcloud-weight]'))
                         .map(function(el){ return el.getAttribute('tagcloud-weight') })
                         .sort(function(a, b){ return b-a }); // Sort descending
         
@@ -29,7 +29,7 @@
                     return item.trim() !== '';
                 })
                 .map(function(item) {
-                    return ( item.indexOf('span') === -1 ) ? '<span>' + item.trim() + '</span>' : item.trim();
+                    return ( item.indexOf('span') === -1 ) ? '<span>' + item.trim() + '</span> ' : item.trim();
                 })
                 .join('');
         }
