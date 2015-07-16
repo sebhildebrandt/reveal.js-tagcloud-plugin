@@ -1,16 +1,46 @@
 # Tagcloud Plugin for reveal.js
 
-Simple Tag-Cloud Plugin for [reveal.js](https://github.com/hakimel/reveal.js) (framework for easily creating beautiful presentations using HTML)  - Version 0.1.0 - (MIT-license)
+Simple Tag-Cloud Plugin for [reveal.js](https://github.com/hakimel/reveal.js) (framework for easily creating beautiful presentations using HTML) - (MIT-license)
+
+Version 1.1.0
 
 ![Tag Cloud](https://www.plus-innovations.com/images/tagcloud.jpg)
 
 ## Installation
 
-Place the `tagcloud`-directory within the reveal.js `plugin` directory - that's it.
+Place the `tagcloud`-directory within the reveal.js `plugin` directory - that's it. Tested with version 3.1 of [reveal.js](https://github.com/hakimel/reveal.js)
 
 ## Usage
 
 With this plugin, you easily can create tagclouds within reveal.js - eather coloured or black&white. 
+
+After copying the 'tagcloud' directory into the reveal.js 'plugin' directors, you also need to add this dependency to your Reveal.initialize script (normaly at the end of your HTML file).
+
+```html
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+    
+        // ... add your settings here ...
+
+        // Optional reveal.js plugins
+        dependencies: [
+            // other dependencies ...
+
+            { src: 'plugin/tagcloud/tagcloud.js', async: true }
+
+        ]
+    });
+
+</script>
+
+```
+
 
 Just create a section for your next slide. Add a `tagcloud` attribute to your section. Insite the section each item gets a seperate line. In your presentation place e.g. the following code:
 
@@ -72,17 +102,6 @@ If you want your items to appear a little larger, add the `large` attribute:
 </section>
 ```
 
-If you want to have more control over the size of the tags, you can apply a weighting to each tag. Tags with a higher weight value will appear larger than tags with a lower or no weighting at all:
-
-```html
-<section tagcloud>
-    <span tagcloud-weight="10">Twitter Bootstrap</span>
-    <span tagcloud-weight="3">jQuery</span>
-    less
-    <span tagcloud-weight="743">GruntJS</span>
-    <span>Markdown</span>
-</section>
-```
 
 ## CSS
 
@@ -118,14 +137,11 @@ http://www.plus-innovations.com
 
 Written by Sebastian Hildebrandt for [reveal.js](https://github.com/hakimel/reveal.js)
 
-Contributers:
-Matt Fairbrass(https://github.com/matt-d-rat)
-
 #### License
 
 >The MIT License (MIT)
 >
->Copyright (c) 2014 +innovations.
+>Copyright (c) 2014-2015 +innovations.
 >
 >Permission is hereby granted, free of charge, to any person obtaining a copy
 >of this software and associated documentation files (the "Software"), to deal
@@ -146,5 +162,3 @@ Matt Fairbrass(https://github.com/matt-d-rat)
 >THE SOFTWARE.
 > 
 >Further details see "LICENSE" file.
-
-
