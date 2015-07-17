@@ -14,25 +14,20 @@ Place the `tagcloud`-directory within the reveal.js `plugin` directory - that's 
 
 With this plugin, you easily can create tagclouds within reveal.js - eather coloured or black&white. 
 
-After copying the 'tagcloud' directory into the reveal.js 'plugin' directors, you also need to add this dependency to your Reveal.initialize script (normaly at the end of your HTML file).
+After copying the 'tagcloud' directory into the reveal.js 'plugin' directors, you also need to add this dependency to your Reveal.initialize script (which you will normaly find at the end of your HTML file).
 
 ```html
 <script>
-
-    // Full list of configuration options available at:
-    // https://github.com/hakimel/reveal.js#configuration
     Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-    
+
         // ... add your settings here ...
 
         // Optional reveal.js plugins
         dependencies: [
             // other dependencies ...
 
-            { src: 'plugin/tagcloud/tagcloud.js', async: true }
+            // add THIS dependency for tagcloud plugin
+            { src: 'plugin/tagcloud/tagcloud.js', async: true } 
 
         ]
     });
@@ -41,8 +36,7 @@ After copying the 'tagcloud' directory into the reveal.js 'plugin' directors, yo
 
 ```
 
-
-Just create a section for your next slide. Add a `tagcloud` attribute to your section. Insite the section each item gets a seperate line. In your presentation place e.g. the following code:
+After that, in the slides-section of your HTML, just create a section for your next slide. Add a `tagcloud` attribute to your section. Insite the section each item gets a seperate line. In your presentation place e.g. the following code:
 
 ```html
 <section tagcloud>
@@ -102,6 +96,21 @@ If you want your items to appear a little larger, add the `large` attribute:
 </section>
 ```
 
+If you want to have full controll on the size of each tag, you can do the following:
+
+```html
+<section tagcloud>
+    <span tagcloud-weight="10">Twitter Bootstrap</span>
+    <span tagcloud-weight="3">jQuery</span>
+    <span tagcloud-weight="20">less</span>
+    <span tagcloud-weight="30">GruntJS</span>
+    <span tagcloud-weight="50">GulpJS</span>
+    <span tagcloud-weight="15">Markdown</span>
+    <span tagcloud-weight="20">Jasmins</span>
+    <span tagcloud-weight="40">Mocha</span>
+    <span>Markdown</span>
+</section>
+```
 
 ## CSS
 
@@ -136,6 +145,9 @@ http://www.plus-innovations.com
 #### Credits
 
 Written by Sebastian Hildebrandt for [reveal.js](https://github.com/hakimel/reveal.js)
+
+Contributors:
+Matt Fairbrass [matt-d-rat](https://github.com/matt-d-rat)
 
 #### License
 
