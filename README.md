@@ -1,6 +1,6 @@
 # Tagcloud Plugin for reveal.js
 
-Simple Tag-Cloud Plugin for [reveal.js](https://github.com/hakimel/reveal.js) (framework for easily creating beautiful presentations using HTML) - (MIT-license)
+Simple Tag-Cloud Plugin for [reveal.js](https://github.com/hakimel/reveal.js) (framework for easily creating beautiful presentations using HTML) - [![MIT license][license-img]][license-url]
 
 Version 1.1.0
 
@@ -149,9 +149,9 @@ Written by Sebastian Hildebrandt for [reveal.js](https://github.com/hakimel/reve
 Contributors:
 Matt Fairbrass [matt-d-rat](https://github.com/matt-d-rat)
 
-#### License
+## License [![MIT license][license-img]][license-url]
 
->The MIT License (MIT)
+>The [`MIT`][license-url] License (MIT)
 >
 >Copyright (c) 2014-2015 +innovations.
 >
@@ -174,3 +174,6 @@ Matt Fairbrass [matt-d-rat](https://github.com/matt-d-rat)
 >THE SOFTWARE.
 > 
 >Further details see "LICENSE" file.
+
+[license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
+[license-url]: https://github.com/sebhildebrandt/reveal.js-tagcloud-plugin/blob/master/LICENSE
