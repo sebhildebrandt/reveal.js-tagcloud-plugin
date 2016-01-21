@@ -94,8 +94,18 @@
         // Size and colour the cloud tags
         [].forEach.call( cloud.querySelectorAll('span'), function(elem) {
             elem.style.fontSize = calcSize(elem) + '%';
-            elem.style.color = tagColor(elem, isBlackWhite);
             elem.classList.add('clouditem');
+            if( elem.hasAttribute('tagcloud-link') ) {
+                newelem = document.createElement('a');
+                newelem.innerHTML = elem.innerHTML;
+                newelem.style.color = tagColor(elem, isBlackWhite);
+                newelem.setAttribute('href', '/#/' + elem.getAttribute('tagcloud-link'));
+                elem.innerHTML = '';
+                elem.appendChild(newelem);
+            }
+            else {
+                elem.style.color = tagColor(elem, false);
+            }
         });
     });
 })();
