@@ -1,8 +1,8 @@
 # Tagcloud Plugin for reveal.js
 
-Simple Tag-Cloud Plugin for [reveal.js](https://github.com/hakimel/reveal.js) (framework for easily creating beautiful presentations using HTML) - (MIT-license)
+Simple Tag-Cloud Plugin for [reveal.js](https://github.com/hakimel/reveal.js) (framework for easily creating beautiful presentations using HTML) - [![MIT license][license-img]][license-url]
 
-Version 1.1.0
+Version 1.2.1
 
 ![Tag Cloud](https://www.plus-innovations.com/images/tagcloud.jpg)
 
@@ -14,25 +14,20 @@ Place the `tagcloud`-directory within the reveal.js `plugin` directory - that's 
 
 With this plugin, you easily can create tagclouds within reveal.js - eather coloured or black&white. 
 
-After copying the 'tagcloud' directory into the reveal.js 'plugin' directors, you also need to add this dependency to your Reveal.initialize script (normaly at the end of your HTML file).
+After copying the 'tagcloud' directory into the reveal.js 'plugin' directors, you also need to add this dependency to your Reveal.initialize script (which you will normaly find at the end of your HTML file).
 
 ```html
 <script>
-
-    // Full list of configuration options available at:
-    // https://github.com/hakimel/reveal.js#configuration
     Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-    
+
         // ... add your settings here ...
 
         // Optional reveal.js plugins
         dependencies: [
             // other dependencies ...
 
-            { src: 'plugin/tagcloud/tagcloud.js', async: true }
+            // add THIS dependency for tagcloud plugin
+            { src: 'plugin/tagcloud/tagcloud.js', async: true } 
 
         ]
     });
@@ -41,8 +36,7 @@ After copying the 'tagcloud' directory into the reveal.js 'plugin' directors, yo
 
 ```
 
-
-Just create a section for your next slide. Add a `tagcloud` attribute to your section. Insite the section each item gets a seperate line. In your presentation place e.g. the following code:
+After that, in the slides-section of your HTML, just create a section for your next slide. Add a `tagcloud` attribute to your section. Insite the section each item gets a seperate line. In your presentation place e.g. the following code:
 
 ```html
 <section tagcloud>
@@ -102,6 +96,45 @@ If you want your items to appear a little larger, add the `large` attribute:
 </section>
 ```
 
+If you want to have full controll on the size of each tag, you can do the following:
+
+```html
+<section tagcloud>
+    <span tagcloud-weight="10">Twitter Bootstrap</span>
+    <span tagcloud-weight="3">jQuery</span>
+    <span tagcloud-weight="20">less</span>
+    <span tagcloud-weight="30">GruntJS</span>
+    <span tagcloud-weight="50">GulpJS</span>
+    <span tagcloud-weight="15">Markdown</span>
+    <span tagcloud-weight="20">Jasmins</span>
+    <span tagcloud-weight="40">Mocha</span>
+    <span>Markdown</span>
+</section>
+```
+
+If you want to shuffle the tag elements, just add a `shuffle` attribute to the section - thanks to [cprior](https://github.com/cprior):
+
+```html
+<section tagcloud large shuffle>
+    Twitter Bootstrap
+    jQuery
+    less
+    ...
+    ...
+    Jasmine
+</section>
+```
+
+And here is, how you can add a link for a tag to a specific slide of your presentation - thanks to [cprior](https://github.com/cprior):
+
+```html
+<section tagcloud large shuffle>
+    <span tagcloud-link="42">Twitter Bootstrap</span>
+    <span tagcloud-link="51">jQuery</span>
+    ...
+    ...
+</section>
+```
 
 ## CSS
 
@@ -137,11 +170,15 @@ http://www.plus-innovations.com
 
 Written by Sebastian Hildebrandt for [reveal.js](https://github.com/hakimel/reveal.js)
 
-#### License
+Contributors:
+- Matt Fairbrass [matt-d-rat](https://github.com/matt-d-rat)
+- Christian Prior [cprior](https://github.com/cprior)
 
->The MIT License (MIT)
+## License [![MIT license][license-img]][license-url]
+
+>The [`MIT`][license-url] License (MIT)
 >
->Copyright (c) 2014-2015 +innovations.
+>Copyright (c) 2014-2016 +innovations.
 >
 >Permission is hereby granted, free of charge, to any person obtaining a copy
 >of this software and associated documentation files (the "Software"), to deal
@@ -163,4 +200,5 @@ Written by Sebastian Hildebrandt for [reveal.js](https://github.com/hakimel/reve
 > 
 >Further details see "LICENSE" file.
 
-
+[license-img]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
+[license-url]: https://github.com/sebhildebrandt/reveal.js-tagcloud-plugin/blob/master/LICENSE

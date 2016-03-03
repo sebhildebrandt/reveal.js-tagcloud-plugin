@@ -23,15 +23,28 @@
             for(index = 0; index < slideNotes.length; ++index) {
                 text = text.replace(slideNotes[index].textContent, '');
             }
+            //@see http://stackoverflow.com/questions/24512636/split-words-shuffle-jumble-letters
+            var a = text.split(/\n/),
+            n = a.length;
 
-            return text.split(/\n/)
-                .filter(function(item) {
-                    return item.trim() !== '';
-                })
-                .map(function(item) {
-                    return ( item.indexOf('span') === -1 ) ? '<span>' + item.trim() + '</span> ' : item.trim();
-                })
-                .join('');
+            if (cloud.hasAttribute('shuffle')) {
+                //shuffle order
+                for (var i = n - 1; i > 0; i--) {
+                    var j = Math.floor(Math.random() * (i + 1));
+                    var tmp = a[i];
+                    a[i] = a[j];
+                    a[j] = tmp;
+                }
+            } //end if shuffle
+
+            return a.filter(function(item) {
+                return item.trim() !== '';
+            })
+            .map(function(item) {
+            return ( item.indexOf('span') === -1 ) ? '<span>' + item.trim() + '</span> ' : item.trim();
+            })
+            .join("");
+
         }
 
         /**
@@ -94,8 +107,18 @@
         // Size and colour the cloud tags
         [].forEach.call( cloud.querySelectorAll('span'), function(elem) {
             elem.style.fontSize = calcSize(elem) + '%';
-            elem.style.color = tagColor(elem, isBlackWhite);
             elem.classList.add('clouditem');
+            if( elem.hasAttribute('tagcloud-link') ) {
+                newelem = document.createElement('a');
+                newelem.innerHTML = elem.innerHTML;
+                newelem.style.color = tagColor(elem, isBlackWhite);
+                newelem.setAttribute('href', '/#/' + elem.getAttribute('tagcloud-link'));
+                elem.innerHTML = '';
+                elem.appendChild(newelem);
+            }
+            else {
+                elem.style.color = tagColor(elem, false);
+            }
         });
     });
 })();

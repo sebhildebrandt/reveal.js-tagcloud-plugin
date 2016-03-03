@@ -1,0 +1,18 @@
+{
+  "name": "reveal-tagcloud",
+  "version": "1.2.1",
+  "description": "Simple Tag-Cloud Plugin for reveal.js (https://github.com/hakimel/reveal.js)",
+  "homepage": "https://github.com/sebhildebrandt/reveal.js-tagcloud-plugin",
+  "author": {
+    "name": "Sebastian Hildebrandt",
+    "web": "http://plus-innovations.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sebhildebrandt/reveal.js-tagcloud-plugin.git"
+  },
+  "dependencies": {
+    "revealjs": "~3.1.0"
+  },
+  "license": "MIT"
+}
