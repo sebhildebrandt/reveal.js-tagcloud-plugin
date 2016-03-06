@@ -5,7 +5,7 @@
         var weights = [].slice.call(cloud.querySelectorAll('[tagcloud-weight]'))
                         .map(function(el){ return el.getAttribute('tagcloud-weight') })
                         .sort(function(a, b){ return b-a }); // Sort descending
-        
+
         var upperBound = weights[0];
         var lowerBound = weights[ weights.length - 1 ];
         var denominator = upperBound - lowerBound;
@@ -13,9 +13,9 @@
         var isBlackWhite = cloud.hasAttribute('bw');
 
         /**
-         * Parses the text, removing any notes and formats each node with a span if one 
+         * Parses the text, removing any notes and formats each node with a span if one
          * doesn't exist
-         * 
+         *
          * @param text {String} the text of the slide
          * @returns {String} the formatted slide content
          **/
@@ -63,7 +63,7 @@
                 var itemWeight = elem.getAttribute('tagcloud-weight') || 0;
                 var numerator = itemWeight - lowerBound;
                 prctnge = (numerator / denominator) * 150 + 50;
-            } 
+            }
             // None of the cloud items are weighted, base the size randomly
             else {
                 prctnge = Math.random() * 150 + 50;
@@ -117,7 +117,7 @@
                 elem.appendChild(newelem);
             }
             else {
-                elem.style.color = tagColor(elem, false);
+                elem.style.color = tagColor(elem, isBlackWhite);
             }
         });
     });
