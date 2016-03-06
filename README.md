@@ -2,7 +2,7 @@
 
 Simple Tag-Cloud Plugin for [reveal.js](https://github.com/hakimel/reveal.js) (framework for easily creating beautiful presentations using HTML) - [![MIT license][license-img]][license-url]
 
-Version 1.2.1
+Version 1.2.2
 
 ![Tag Cloud](https://www.plus-innovations.com/images/tagcloud.jpg)
 
@@ -173,6 +173,7 @@ Written by Sebastian Hildebrandt for [reveal.js](https://github.com/hakimel/reve
 Contributors:
 - Matt Fairbrass [matt-d-rat](https://github.com/matt-d-rat)
 - Christian Prior [cprior](https://github.com/cprior)
+- Richard Klemm [klemmster](https://github.com/klemmster)
 
 ## License [![MIT license][license-img]][license-url]
 
