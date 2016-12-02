@@ -1,16 +1,16 @@
 // tagcloud
-(function(){
-    [].forEach.call( document.querySelectorAll('[tagcloud]'), function(cloud) {
+(function () {
+    [].forEach.call(document.querySelectorAll('[tagcloud]'), function (cloud) {
         // Find all tagcloud items with a weight defined and add them to this array
         var weights = [].slice.call(cloud.querySelectorAll('[tagcloud-weight]'))
-                        .map(function(el){ return el.getAttribute('tagcloud-weight') })
-                        .sort(function(a, b){ return b-a }); // Sort descending
+            .map(function (el) { return el.getAttribute('tagcloud-weight') })
+            .sort(function (a, b) { return b - a }); // Sort descending
 
         var upperBound = weights[0];
-        var lowerBound = weights[ weights.length - 1 ];
+        var lowerBound = weights[weights.length - 1];
         var denominator = upperBound - lowerBound;
         var slideNotes = cloud.querySelectorAll('.notes');
-        var isBlackWhite = cloud.hasAttribute('bw');
+        var variationColor = (cloud.hasAttribute('bw')) ? 'bw' : (cloud.hasAttribute('mv')) ? 'mv' : '' ;
 
         /**
          * Parses the text, removing any notes and formats each node with a span if one
@@ -20,12 +20,12 @@
          * @returns {String} the formatted slide content
          **/
         function formatTags(text) {
-            for(index = 0; index < slideNotes.length; ++index) {
+            for (index = 0; index < slideNotes.length; ++index) {
                 text = text.replace(slideNotes[index].textContent, '');
             }
             //@see http://stackoverflow.com/questions/24512636/split-words-shuffle-jumble-letters
             var a = text.split(/\n/),
-            n = a.length;
+                n = a.length;
 
             if (cloud.hasAttribute('shuffle')) {
                 //shuffle order
@@ -37,13 +37,13 @@
                 }
             } //end if shuffle
 
-            return a.filter(function(item) {
+            return a.filter(function (item) {
                 return item.trim() !== '';
             })
-            .map(function(item) {
-            return ( item.indexOf('span') === -1 ) ? '<span>' + item.trim() + '</span> ' : item.trim();
-            })
-            .join("");
+                .map(function (item) {
+                    return (item.indexOf('span') === -1) ? '<span>' + item.trim() + '</span> ' : item.trim();
+                })
+                .join("");
 
         }
 
@@ -59,7 +59,7 @@
             var prctnge;
 
             // At least one of our cloud items is weighted, base sizes around weights
-            if( weights.length > 0 ) {
+            if (weights.length > 0) {
                 var itemWeight = elem.getAttribute('tagcloud-weight') || 0;
                 var numerator = itemWeight - lowerBound;
                 prctnge = (numerator / denominator) * 150 + 50;
@@ -83,14 +83,39 @@
          *
          * @param {DOM Element} the tag to color.
          **/
-        function tagColor(elem, isBlackWhite) {
+        function tagColor(elem, variationColor) {
             var color;
 
-            if (isBlackWhite) {
+            if (variationColor == 'bw') {
                 var col = Math.round(Math.random() * 155 + 100);
-                color = 'rgb('+ col  +',' + col + ',' + col + ')';
-            } else {
-                color = 'hsl('+ Math.random()*360 +', 40%, 50%)';
+                color = 'rgb(' + col + ',' + col + ',' + col + ')';
+            }
+            else if (variationColor == 'mv') {
+                var itemColor = elem.getAttribute('tagcloud-color') || 0;
+                var col = Math.round(Math.random() * 255);
+                col -= 50;
+                if (itemColor == 'r') {
+                    color = 'rgb(255,' + col + ',' + col + ')';
+                }
+                else if( itemColor == 'b')
+                {
+                    color = 'rgb('+col+',' + col + ',255)';
+                }
+                else if( itemColor == 'g')
+                {
+                    color = 'rgb('+col+',' + col + ',255)';
+                }
+
+
+            }
+
+            else if (variationColor == 'bv') {
+                var col = Math.round(Math.random() * 255);
+                col -= 50;
+                color = 'rgb(255,' + col + ',' + col + ')';
+            }
+            else {
+                color = 'hsl(' + Math.random() * 360 + ', 40%, 50%)';
             }
 
             return color;
@@ -100,24 +125,24 @@
         cloud.innerHTML = formatTags(cloud.innerHTML);
 
         // Append the slideNotes to the slide again
-        for(index = 0; index < slideNotes.length; ++index) {
+        for (index = 0; index < slideNotes.length; ++index) {
             cloud.appendChild(slideNotes[index]);
         }
 
         // Size and colour the cloud tags
-        [].forEach.call( cloud.querySelectorAll('span'), function(elem) {
+        [].forEach.call(cloud.querySelectorAll('span'), function (elem) {
             elem.style.fontSize = calcSize(elem) + '%';
             elem.classList.add('clouditem');
-            if( elem.hasAttribute('tagcloud-link') ) {
+            if (elem.hasAttribute('tagcloud-link')) {
                 newelem = document.createElement('a');
                 newelem.innerHTML = elem.innerHTML;
-                newelem.style.color = tagColor(elem, isBlackWhite);
+                newelem.style.color = tagColor(elem, variationColor);
                 newelem.setAttribute('href', '/#/' + elem.getAttribute('tagcloud-link'));
                 elem.innerHTML = '';
                 elem.appendChild(newelem);
             }
             else {
-                elem.style.color = tagColor(elem, isBlackWhite);
+                elem.style.color = tagColor(elem, variationColor);
             }
         });
     });
