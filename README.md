@@ -36,7 +36,7 @@ After copying the 'tagcloud' directory into the reveal.js 'plugin' directors, yo
 
 ```
 
-After that, in the slides-section of your HTML, just create a section for your next slide. Add a `tagcloud` attribute to your section. Insite the section each item gets a seperate line. In your presentation place e.g. the following code:
+After that, in the slides-section of your HTML, just create a section for your next slide. Add a `tagcloud` attribute to your section. Inside the section each item gets a seperate line. In your presentation place e.g. the following code:
 
 ```html
 <section tagcloud>
@@ -125,7 +125,7 @@ If you want to shuffle the tag elements, just add a `shuffle` attribute to the s
 </section>
 ```
 
-And here is, how you can add a link for a tag to a specific slide of your presentation - thanks to [cprior](https://github.com/cprior):
+And here is how you can add a link for a tag to a specific slide of your presentation - thanks to [cprior](https://github.com/cprior):
 
 ```html
 <section tagcloud large shuffle>
