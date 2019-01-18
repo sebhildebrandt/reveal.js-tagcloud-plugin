@@ -1,5 +1,7 @@
 // tagcloud
 (function(){
+	// Add tagcloud counter
+	var tagCloudNb = 1;
     [].forEach.call( document.querySelectorAll('[tagcloud]'), function(cloud) {
         // Find all tagcloud items with a weight defined and add them to this array
         var weights = [].slice.call(cloud.querySelectorAll('[tagcloud-weight]'))
@@ -43,7 +45,7 @@
             .map(function(item) {
             return ( item.indexOf('span') === -1 ) ? '<span>' + item.trim() + '</span> ' : item.trim();
             })
-            .join("");
+            .join(" ");
 
         }
 
@@ -97,7 +99,7 @@
         }
 
         // Replace the inner html of the slide with the formatted tags
-        cloud.innerHTML = formatTags(cloud.innerHTML);
+        cloud.innerHTML = "<tagcloud>" + formatTags(cloud.innerHTML) + "</tagcloud>";
 
         // Append the slideNotes to the slide again
         for(index = 0; index < slideNotes.length; ++index) {
@@ -120,5 +122,8 @@
                 elem.style.color = tagColor(elem, isBlackWhite);
             }
         });
+		// Add id to style
+		cloud.setAttribute("id", "tagCloud-" + tagcloudnb);
+		tagcloudnb ++;
     });
 })();
